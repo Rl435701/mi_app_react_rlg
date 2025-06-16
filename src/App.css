@@ -1,120 +1,201 @@
+/* Variables de color */
 :root {
-  --cream: #f5f1e6;
-  --soft-gray: #e8e8e8;
-  --warm-gray: #d8d6d1;
-  --taupe: #a39b8b;
-  --slate: #6b7d7d;
-  --dark-slate: #4a5c5c;
-  --text: #333333;
-  --text-light: #5a5a5a;
+  --dark-slate: #2d3748;
+  --slate: #4a5568;
+  --warm-gray: #e2e8f0;
+  --taupe: #a78a7f;
+  --cream: #f7fafc;
+  --highlight: #4299e1;
 }
 
-.App {
-  text-align: center;
-  min-height: 100vh;
-  background-color: var(--cream);
-  color: var(--text);
-  font-family: 'Georgia', serif;
+/* Estilos base */
+body {
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
-}
-
-.App-logo {
-  height: 85px;
-  pointer-events: none;
-  margin-bottom: 20px;
-  filter: sepia(30%) brightness(90%);
-  transition: transform 0.3s ease;
-}
-
-.App-logo:hover {
-  transform: scale(1.05);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 30s linear;
-  }
-}
-
-.App-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 20px;
-}
-
-.profile-card {
-  background: var(--soft-gray);
-  border-radius: 6px;
-  padding: 30px;
-  margin-top: 20px;
-  max-width: 550px;
-  width: 85%;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--warm-gray);
-}
-
-.App-title {
-  font-size: 1.7rem;
-  margin-bottom: 15px;
   color: var(--dark-slate);
-  font-weight: normal;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-container, .about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.highlight {
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+/* Hero section */
+.hero-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: var(--dark-slate);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: var(--slate);
+  margin-bottom: 25px;
   font-style: italic;
 }
 
-.name {
-  font-size: 1.6rem;
+.hero-text {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
   color: var(--slate);
-  margin-bottom: 10px;
+}
+
+/* Projects section */
+.projects-section h2, .skills-section h2, .about-container h2 {
+  font-size: 2rem;
+  color: var(--dark-slate);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--taupe);
+  display: inline-block;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.project-card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid var(--highlight);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  color: var(--dark-slate);
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  color: var(--slate);
+  margin-bottom: 15px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.tech-item {
+  background: var(--highlight);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
 }
 
-.App-intro {
-  font-size: 0.95rem;
-  margin: 15px 0;
-  color: var(--text-light);
-  max-width: 480px;
+/* Skills section */
+.skills-section {
+  margin: 60px 0;
 }
 
-.divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--taupe), transparent);
-  margin: 20px auto;
-  width: 60%;
-  opacity: 0.4;
+.skills-list {
+  margin: 30px 0;
+  padding-left: 20px;
+  columns: 2;
+  column-gap: 40px;
+}
+
+.skills-list li {
+  margin-bottom: 12px;
+  break-inside: avoid;
+  color: var(--slate);
+}
+
+/* About page */
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  color: var(--slate);
+}
+
+.contact-info {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  color: var(--dark-slate);
 }
 
 .social-links {
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 15px;
   margin-top: 20px;
 }
 
-.App-link {
-  color: var(--cream);
-  padding: 7px 18px;
-  border-radius: 3px;
+.social-links a {
+  color: var(--highlight);
   text-decoration: none;
-  font-weight: 400;
-  background-color: var(--slate);
-  transition: all 0.2s ease;
-  font-size: 0.8rem;
-  letter-spacing: 0.3px;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.App-link:hover {
-  background-color: var(--dark-slate);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.social-links a:hover {
+  color: var(--dark-slate);
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive design */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .skills-list {
+    columns: 1;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
   }
 }
