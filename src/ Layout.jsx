@@ -7,7 +7,7 @@ export default function Layout() {
       <nav className="navbar">
         <div className="nav-container">
           <Link to="/" className="nav-logo">
-            RLG
+            16 de junio de 2025
           </Link>
           <div className="nav-links">
             <Link to="/" className="nav-link">Inicio</Link>
@@ -23,7 +23,7 @@ export default function Layout() {
       
       <footer className="footer">
         <div className="footer-content">
-          <p>© {new Date().getFullYear()} RLG. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Ramón López García. Todos los derechos reservados.</p>
           <div className="footer-links">
             <a href="/privacy">Política de Privacidad</a>
             <a href="/terms">Términos de Servicio</a>

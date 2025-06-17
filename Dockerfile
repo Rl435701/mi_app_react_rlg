@@ -1,28 +1,19 @@
-# Fase de construcción
-FROM node:24-alpine as build
+# Imagen Node dependiendo de versión instalada
+FROM node:22
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos de dependencias
+# Copia los archivos del proyecto
 COPY package.json package-lock.json ./
 RUN npm install
-
-# Copia el resto de los archivos y construye la aplicación
 COPY . .
-RUN npm run build
 
-# Fase de producción con Nginx
-FROM nginx:alpine
+# Variable de entorno para el puerto (con valor por defecto 4000)
+ENV PORT=4000
 
-# Copia la configuración personalizada de Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expone el puerto de la aplicación
+EXPOSE $PORT
 
-# Copia los archivos construidos desde la fase de construcción
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expone el puerto 80 (HTTP estándar para Nginx)
-EXPOSE 8080
-
-# Comando para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Ejecuta la aplicación en desarrollo
+CMD ["npm", "start"]
